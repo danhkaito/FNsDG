@@ -8,8 +8,9 @@ from scipy.spatial.distance import pdist
 import networkx as nx
 from typing import List, Optional, Tuple, Union
 from collections import defaultdict
-
-def create_edge_subgraph(som, train_X, graph_dict, node_idxs, prop = 0.75):
+from torch import Tensor
+import os
+def create_edge_subgraph(som, X, graph_dict, node_idxs, prop = 0.75):
 
     length = graph_dict[node_idxs].shape[0]
     # print(length)
@@ -18,10 +19,10 @@ def create_edge_subgraph(som, train_X, graph_dict, node_idxs, prop = 0.75):
     # print(node_arr.shape)
     for i in range (graph_dict[node_idxs].shape[0]):
         map_node_idx[i] = graph_dict[node_idxs][i]
-        if graph_dict[node_idxs][i] - som.size[0]*som.size[1] > train_X.shape[0]-1:
+        if graph_dict[node_idxs][i] - som.size[0]*som.size[1] > X.shape[0]-1:
             print("!nát!")
         else:
-            node_arr[i] = train_X[graph_dict[node_idxs][i] - som.size[0]*som.size[1]]
+            node_arr[i] = X[graph_dict[node_idxs][i] - som.size[0]*som.size[1]]
         
 
     dist = pdist(node_arr, metric='cosine')
@@ -87,7 +88,7 @@ def create_whole_Graph(X, Y, som, som_connected = False, connected_radius = 1, b
             if real_idx < len_train:
                 node_list = np.append(node_list, np.array([real_idx+som.size[0]*som.size[1], {'x': X_torch[real_idx],'y': Y_torch[real_idx], 'train_mask': True, 'test_mask':False}]).reshape(1,-1), axis= 0)
             else:
-                print("Have test")
+                # print("Have test")
                 node_list = np.append(node_list, np.array([real_idx+som.size[0]*som.size[1], {'x': X_torch[real_idx],'y': Y_torch[real_idx], 'train_mask': False, 'test_mask':True}]).reshape(1,-1), axis= 0)
 
         for x in map_indices:
@@ -103,7 +104,7 @@ def create_whole_Graph(X, Y, som, som_connected = False, connected_radius = 1, b
                 edge_som = np.array([[_1d_index, y[i], {'edge_weight': 1 - pdist([flatten_weights[_1d_index].numpy(), X[y[i]-som.size[0]*som.size[1]]], metric='cosine')[0],'edge_type':0}] for i in range(y.shape[0])])
                 edge_list = np.concatenate((edge_list, edge_som))
     for x in graph_dict:
-        _, adj = create_edge_subgraph(graph_dict, x)
+        _, adj = create_edge_subgraph(som, X, graph_dict, x)
         edge_list = np.concatenate((edge_list, adj))
     return node_list, edge_list, graph_dict
 
@@ -210,16 +211,26 @@ def from_networkx(G, group_node_attrs: Optional[Union[List[str], all]] = None,
     return data
 
 def create_homogeneous_data(som, embeddings, name_train, som_connected, preload = False, name_test = None):
+    FOLDER = f"../../saved/SOM-GNN/data/{name_train}/{embeddings}"
+    if not os.path.exists(FOLDER):
+        os.makedirs(FOLDER)
+
+    if name_test:
+        FOLDER = f"../../saved/SOM-GNN/data/{name_train}+{name_test}/{embeddings}"
+        if not os.path.exists(FOLDER):
+            os.makedirs(FOLDER)
+
+
     if preload == False:
-        X = np.load(f"../../../saved/embeddings/{name_train}/{embeddings}/train_embedding.npy")
-        Y = np.load(f"../../../saved/embeddings/{name_train}/{embeddings}/train_label.npy")
+        X = np.load(f"../../saved/embeddings/{name_train}/{embeddings}/train_embedding.npy")
+        Y = np.load(f"../../saved/embeddings/{name_train}/{embeddings}/train_label.npy")
         len_train = math.inf
         if name_test is not None:
-            X_test = np.load(f"../../../saved/embeddings/{name_test}/{embeddings}/test_embedding.npy")
-            Y_test = np.load(f"../../../saved/embeddings/{name_test}/{embeddings}/test_label.npy")
+            X_test = np.load(f"../../saved/embeddings/{name_test}/{embeddings}/test_embedding.npy")
+            Y_test = np.load(f"../../saved/embeddings/{name_test}/{embeddings}/test_label.npy")
             len_train = len(X)
-            X = np.concatenate(X, X_test)
-            Y = np.concatenate(Y, Y_test)
+            X = np.concatenate((X, X_test))
+            Y = np.concatenate((Y, Y_test))
         node_list, edge_list, mapping_som = create_whole_Graph(X, Y, som, som_connected=som_connected, len_train=len_train)
         G = nx.Graph()
         G.add_nodes_from(node_list)
@@ -231,13 +242,13 @@ def create_homogeneous_data(som, embeddings, name_train, som_connected, preload 
         pyg_data.edge_type = torch.cat((pyg_data.edge_type, pyg_data.edge_type))
 
         if name_test is not None:
-            torch.save(pyg_data, f"../../../saved/SOM-GNN/data/{name_train}+{name_test}/homograph.pt")
+            torch.save(pyg_data, f"{FOLDER}/homograph.pt")
         else:
-            torch.save(pyg_data, f"../../../saved/SOM-GNN/data/{name_train}/homograph.pt")
+            torch.save(pyg_data, f"{FOLDER}/homograph.pt")
         return pyg_data
     else:
         if name_test is not None:
-            pyg_data = torch.load(f"../../../saved/SOM-GNN/data/{name_train}+{name_test}/homograph.pt")
+            pyg_data = torch.load(f"{FOLDER}/homograph.pt")
         else:
-            pyg_data = torch.load(f"../../../saved/SOM-GNN/data/{name_train}/homograph.pt")
+            pyg_data = torch.load(f"{FOLDER}/homograph.pt")
         return pyg_data
