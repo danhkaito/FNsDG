@@ -1,12 +1,11 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-import som_v2
 import torch
 import numpy as np
 
 class SOMVisualize():
-    def __init__(self, som: som_v2.Som) -> None:
+    def __init__(self, som) -> None:
         self.som = som
         pass
 
@@ -28,8 +27,12 @@ class SOMVisualize():
         plt.rcParams["figure.figsize"] = (12,6)
 
         # Plot the learning curve.
-        plt.plot(df_stats['Loss'], 'b-o', label="Training Loss")
-
+        color = ['b-o', 'r-o', 'g-o']
+        i = 0
+        for x in df_stats:
+            if x.lower() != 'epoch':
+                plt.plot(df_stats[x], color[i], label=f"Training {x}")
+            i+=1
         # Label the plot.
         plt.title("Training Loss")
         plt.xlabel("Epoch")
