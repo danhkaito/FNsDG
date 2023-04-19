@@ -1,15 +1,15 @@
 import torch
 from typing import *
 from torch import nn
-from utils import *
+from model.SOM.utils import *
 
 class Som(nn.Module):
 
-    def __init__(self, size: Tuple[int, int, int]):
+    def __init__(self, size: Tuple[int, int, int], lr):
         super().__init__()
         self.size = size
-        self.lr = torch.tensor(0.6)
-        self.lr0 = torch.tensor(0.6)
+        self.lr = torch.tensor(lr)
+        self.lr0 = torch.tensor(lr)
         self.dRadius = torch.tensor(max(size[:-1]) / 2.0)
         self.dRadius0 = torch.tensor(max(size[:-1]) / 2.0)
         self.weights = nn.Parameter((torch.randn(self.size)), requires_grad=False)
