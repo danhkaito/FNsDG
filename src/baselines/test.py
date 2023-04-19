@@ -23,7 +23,7 @@ EPOCH = args.epoch
 LR = args.lr
 EPS = args.eps
 
-TEST_PATH = f'../../data/{args.dataset}/test.csv'
+TEST_PATH = f'../../data/{args.test}/test.csv'
 SAVE_PATH = f'../../saved/baselines/{args.model_name}_{args.model}_{args.dataset}.pt'
 #-----------------------------------#
 
@@ -102,16 +102,18 @@ def test():
         
         # Store predictions and true labels
         pred_prob.append(output)
-        predictions.append(np.argmax(output, axis=1).flatten())
+        # predictions.append(np.argmax(output, axis=1).flatten())
         true_labels.append(label_ids.flatten())
 
     print('DONE.')
-    pred_labels = (np.concatenate(predictions, axis=0))
+    pred_prob = (np.concatenate(pred_prob, axis=0))
     true_labels = (np.concatenate(true_labels, axis=0))
     
+    
+    
 
-    print(f"Accuracy: {accuracy_score(true_labels, pred_labels)}\n \
-        Precsion, Recall, F1-Score Label 1: {precision_recall_fscore_support(true_labels, pred_labels, average='binary', pos_label = 1)}\n\
-        Precsion, Recall, F1-Score Label 0: {precision_recall_fscore_support(true_labels, pred_labels, average='binary', pos_label = 0)}")
+    # print(f"Accuracy: {accuracy_score(true_labels, pred_labels)}\n \
+    #     Precsion, Recall, F1-Score Label 1: {precision_recall_fscore_support(true_labels, pred_labels, average='binary', pos_label = 1)}\n\
+    #     Precsion, Recall, F1-Score Label 0: {precision_recall_fscore_support(true_labels, pred_labels, average='binary', pos_label = 0)}")
     
 test()

@@ -3,6 +3,8 @@ import random
 import numpy as np
 import argparse
 import os
+from sklearn.metrics import roc_auc_score, precision_score, recall_score, f1_score
+import torch.nn.functional as F
 
 class EarlyStopping:
     def __init__(self, patience=3, min_delta=0, mode = 'acc'): # mode is 'acc' or 'loss'
@@ -44,7 +46,7 @@ def get_parser():
     parser.add_argument('--cuda', action='store_true', default=True,
                     help='Enable CUDA training.')
     parser.add_argument('--seed', type=int, default=42)
-    parser.add_argument('--dataset', type=str, default='Liar')
+    parser.add_argument('--train', type=str, default='Liar')
     parser.add_argument('--num_class', type=int, default=2)
     parser.add_argument('--model_name', type=str, default='bert-base-cased')
     parser.add_argument('--model', type=str, default='mlp', help='Use: mlp, lstm, cnn')
@@ -65,3 +67,17 @@ def get_parser():
     # parser.add_argument('--dropout', type=float, default=0.2)
 
     parser.add_argument('--max_length', type=int, default=512)
+    parser.add_argument('--test', type=str, default='Liar')
+    
+    return parser
+    
+
+# def print_class_acc( pred_prob, true_labels, pre='valid'):
+#     auc_score = roc_auc_score(true_labels, F.softmax(pred_prob, dim=-1)[:,1], average='macro')
+#     precision = precision_score(true_labels, np.argmax(pred_prob, dim=-1))
+#     recall_scr = recall_score(labels.detach().cpu(), torch.argmax(output, dim=-1).detach().cpu())
+
+#     F1_score = f1_score(labels.detach().cpu(), torch.argmax(output, dim=-1).detach().cpu())
+#     print(str(pre)+' current auc-roc score: {:f}\n current F1_score score: {:f}\n current precision: {:f}\n current recall: {:f}'.format(auc_score,F1_score,precision_scr,recall_scr))
+
+#     return auc_score, precision_scr, recall_scr, F1_score

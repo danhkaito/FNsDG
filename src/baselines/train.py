@@ -24,8 +24,8 @@ EPOCH = args.epoch
 LR = args.lr
 EPS = args.eps
 
-TRAIN_PATH = f'../../data/{args.dataset}/train.csv'
-SAVE_PATH = f'../../saved/baselines/{args.model_name}_{args.model}_{args.dataset}.pt'
+TRAIN_PATH = f'../../data/{args.train}/train.csv'
+SAVE_PATH = f'../../saved/baselines/{args.model_name}_{args.model}_{args.train}.pt'
 #-----------------------------------#
 
 utils.set_seed(args.seed)
