@@ -1,0 +1,21 @@
+{
+    "cuda" : "True",
+    "seed" : 42,
+    "nhid" : 64,
+    "train": "Liar",
+    "test": "Liar",
+    "num_classes": 2,
+    "som_method": "euclid",
+    "batch_size": 32,
+    "preload_data": "False",
+    "epoch": 100,
+    "lr": 2e-5,
+    "decay": 1e-8,
+    "dropout": 0.2,
+    "token_length": 512,
+    "embedding_model": "bert-base-cased",
+    "gnn_model": "GCN",
+    "n_hop": 2,
+    "som_connected": "False",
+    "heterogeneous": "False"
+}

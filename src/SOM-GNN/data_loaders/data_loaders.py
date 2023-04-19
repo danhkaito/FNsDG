@@ -97,3 +97,11 @@ def create_whole_Graph(dataset, train_X, train_Y, som, som_connected = False, co
         _, adj = create_edge_subgraph(graph_dict, x)
         edge_list = np.concatenate((edge_list, adj))
     return node_list, edge_list, graph_dict
+
+def create_homogeneous_data(name_train, name_test = None):
+    train_Y = np.load(f"../clean data/{name_train}/data_embedding/bert-base-cased/train_label_128.npy")
+    train_X = np.load(f"../clean data/{name_test}/data_embedding/bert-base-cased/train_embedding_128.npy")
+
+    X_train = 
+    if path_test:
+        train_X_test = 
