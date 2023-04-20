@@ -3,7 +3,7 @@ import random
 import numpy as np
 import argparse
 import os
-from sklearn.metrics import roc_auc_score, precision_score, recall_score, f1_score
+from sklearn.metrics import roc_auc_score, accuracy_score, precision_recall_fscore_support
 import torch.nn.functional as F
 
 class EarlyStopping:
@@ -50,7 +50,7 @@ def get_parser():
     parser.add_argument('--num_class', type=int, default=2)
     parser.add_argument('--model_name', type=str, default='bert-base-cased')
     parser.add_argument('--model', type=str, default='mlp', help='Use: mlp, lstm, cnn')
-    parser.add_argument('--batch_size', type=int, default=32, help='number of size per batch')
+    parser.add_argument('--batch_size', type=int, default=1, help='number of size per batch')
     parser.add_argument('--preload', type=bool, default=False, help='Preload data')
     
     # Use early stopping?
@@ -72,12 +72,32 @@ def get_parser():
     return parser
     
 
-# def print_class_acc( pred_prob, true_labels, pre='valid'):
-#     auc_score = roc_auc_score(true_labels, F.softmax(pred_prob, dim=-1)[:,1], average='macro')
-#     precision = precision_score(true_labels, np.argmax(pred_prob, dim=-1))
-#     recall_scr = recall_score(labels.detach().cpu(), torch.argmax(output, dim=-1).detach().cpu())
+def print_metrics(true_labels, pred_prob): # input are tensors
+    
+    true_labels = true_labels.numpy()
+    pred_labels =  torch.argmax(pred_prob, dim=-1).numpy()
+    true_label_prob = (F.softmax(pred_prob, dim=-1)[:,1]).numpy()
+    
+    auc_score = roc_auc_score(true_labels, true_label_prob, average='macro')
+    
+    Precsion_0, Recall_0, f1_0, _= precision_recall_fscore_support(true_labels, pred_labels, average='binary', pos_label = 0)
+    Precsion_1, Recall_1, f1_1, _= precision_recall_fscore_support(true_labels, pred_labels, average='binary', pos_label = 1)
+    Precsion, Recall, f1, _= precision_recall_fscore_support(true_labels, pred_labels, average='macro')
+    
+    print("Accuracy: {:.2%}\n".format(accuracy_score(true_labels, pred_labels)))
+    print("AUC: {:.2%}\n".format(auc_score))
+    
+    print("Label 0:\n\
+        Precision: {:.2%}\n\
+        RecaLL: {:.2%}\n\
+        F1: {:.2%}".format(Precsion_0, Recall_0, f1_0))
 
-#     F1_score = f1_score(labels.detach().cpu(), torch.argmax(output, dim=-1).detach().cpu())
-#     print(str(pre)+' current auc-roc score: {:f}\n current F1_score score: {:f}\n current precision: {:f}\n current recall: {:f}'.format(auc_score,F1_score,precision_scr,recall_scr))
+    print("Label 1:\n\
+        Precision: {:.2%}\n\
+        RecaLL: {:.2%}\n\
+        F1: {:.2%}".format(Precsion_1, Recall_1, f1_1))
 
-#     return auc_score, precision_scr, recall_scr, F1_score
+    print("Macro:\n\
+        Precision: {:.2%}\n\
+        RecaLL: {:.2%}\n\
+        F1: {:.2%}".format(Precsion, Recall, f1))
