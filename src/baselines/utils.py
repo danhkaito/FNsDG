@@ -43,34 +43,47 @@ def set_seed(seed=1234):
 
 def get_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--cuda', action='store_true', default=True,
-                    help='Enable CUDA training.')
-    parser.add_argument('--seed', type=int, default=42)
-    parser.add_argument('--train', type=str, default='Liar')
-    parser.add_argument('--num_class', type=int, default=2)
-    parser.add_argument('--model_name', type=str, default='bert-base-cased')
-    parser.add_argument('--model', type=str, default='mlp', help='Use: mlp, lstm, cnn')
-    parser.add_argument('--batch_size', type=int, default=1, help='number of size per batch')
-    parser.add_argument('--preload', type=bool, default=False, help='Preload data')
+    # parser.add_argument('--cuda', action='store_true', default=True,
+    #                 help='Enable CUDA training.')
+    # parser.add_argument('--seed', type=int, default=42)
+    # parser.add_argument('--train', type=str, default='Liar')
+    # parser.add_argument('--num_class', type=int, default=2)
+    # parser.add_argument('--model_name', type=str, default='bert-base-cased')
+    # parser.add_argument('--model', type=str, default='mlp', help='Use: mlp, lstm, cnn')
+    # parser.add_argument('--batch_size', type=int, default=32, help='number of size per batch')
+    # parser.add_argument('--preload', type=bool, default=False, help='Preload data')
     
-    # Use early stopping?
-    parser.add_argument('--early_stopping', type=bool, default=True, help='Use early stopping?')
-    parser.add_argument('--patience', type=int, default=5, help='Patience for suing early stoping')
-    parser.add_argument('--freeze_pretrain', type=bool, default=False, help='Use freeze pretrain')
+    # # Use early stopping?
+    # parser.add_argument('--early_stopping', type=bool, default=True, help='Use early stopping?')
+    # parser.add_argument('--patience', type=int, default=5, help='Patience for suing early stoping')
+    # parser.add_argument('--freeze_pretrain', type=bool, default=False, help='Use freeze pretrain')
 
-    parser.add_argument('--epoch', type=int, default=10, help='Number of epochs to train.')
+    # parser.add_argument('--epoch', type=int, default=10, help='Number of epochs to train.')
     
-    parser.add_argument('--lr', type=float, default=2e-5)
-    parser.add_argument('--eps', type=float, default=1e-8)
+    # parser.add_argument('--lr', type=float, default=2e-5)
+    # parser.add_argument('--eps', type=float, default=1e-8)
 
     # parser.add_argument('--weight_decay', type=float, default=5e-4)
     # parser.add_argument('--dropout', type=float, default=0.2)
 
-    parser.add_argument('--max_length', type=int, default=512)
-    parser.add_argument('--test', type=str, default='Liar')
+    # parser.add_argument('--max_length', type=int, default=512)
+    # parser.add_argument('--test', type=str, default='Liar')
+    
+    parser.add_argument("-C", "--config", help="config filename", default="config1")
     
     return parser
     
+def get_device(cuda):
+    if cuda and torch.cuda.is_available():  
+        # Tell PyTorch to use the GPU.    
+        device = torch.device("cuda")
+        print('There are %d GPU(s) available.' % torch.cuda.device_count())
+        print('We will use the GPU:', torch.cuda.get_device_name(0))
+    # If not...
+    else:
+        print('No GPU available, using the CPU instead.')
+        device = torch.device("cpu")
+    return device
 
 def print_metrics(true_labels, pred_prob): # input are tensors
     
