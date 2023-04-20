@@ -39,16 +39,26 @@ train_args = {
 
 for model_type in conf.MODEL_TYPES:
     for data in conf.DATA:
-        # with open(f'{OUTPUT_FOLDER}/train.txt', 'a') as f:
+        
         model_args['train_data'] = data
         model_args['model_type'] = model_type
         train_args['epoch'] = 1
         
         train_test = TrainTestFramework(**model_args)
-        train_test.train(**train_args)
         
-        for test_data in conf.DATA:
-            train_test.test(test_data, batch_size=32, load_from_disk=False)
+        with open(f'{OUTPUT_FOLDER}/train.txt', 'a') as f:
+            sys.stdout = f
+            
+            print(f"\n\n#====================[{model_type}+{data}]======================#")
+            train_test.train(**train_args)
+        
+        
+        with open(f'{OUTPUT_FOLDER}/test.txt', 'a') as f:
+            sys.stdout = f
+            
+            for test_data in conf.DATA:
+                print(f"\n\n#==============[Train:{model_type}/{data}/Test:{test_data}]=============#")
+                train_test.test(test_data, batch_size=32, load_from_disk=False)
         
 
 # train_test = TrainTestFramework(**model_args)

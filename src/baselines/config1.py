@@ -5,7 +5,7 @@ DATA = ['Liar', 'FakeorReal', 'FND']
 MODEL_CONF = {
    'seed': 40,
    'batch_size': 32,
-   'use_early_stopping': True,
+   'use_early_stopping': False,
    'patience': 5,
    'freeze_pretrain': False,
    'model_name': 'bert-base-cased',

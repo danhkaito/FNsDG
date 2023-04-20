@@ -169,9 +169,10 @@ class TrainTestFramework:
                 | Val Accuracy: {total_acc_val / val_size: .4f}')
             
             # Saving best model
-            if early_stopping.early_stop(total_loss_val, model, self.model_path):
-                    print(f"Early stopping at epoch: {epoch_num + 1}")
-                    break
+            if use_early_stopping:
+                if early_stopping.early_stop(total_loss_val, model, self.model_path):
+                        print(f"Early stopping at epoch: {epoch_num + 1}")
+                        break
             
             training_stats.append(
             {
@@ -183,6 +184,10 @@ class TrainTestFramework:
             # 'Training Time': training_time,
             # 'Validation Time': validation_time
             })
+        
+        if not use_early_stopping:
+            print("Saving model...")
+            torch.save(model.state_dict(), self.model_path)
             
         return training_stats
     
