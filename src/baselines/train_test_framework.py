@@ -17,6 +17,10 @@ import utils
 class TrainTestFramework:
     def __init__(self, model_type, model_name, train_data, test_data, max_length, folder_data, folder_model, freeze_pretrain = False):
         
+        if freeze_pretrain:
+            t = 'freezed'
+        else: t = 'unfreezed'
+        
         self.model_name = model_name
         self.model_type = model_type
         self.max_length = max_length
@@ -24,7 +28,7 @@ class TrainTestFramework:
         
         self.train_data_path = f'{folder_data}/{train_data}/train.csv'
         self.test_data_path = f'{folder_data}/{test_data}/test.csv'
-        self.model_path = f'{folder_model}/{model_name}_{model_type}_{train_data}.pt'
+        self.model_path = f'{folder_model}/{model_name}_{model_type}_{train_data}_{t}.pt'
         
         if model_type == 'mlp':
             self.model = BertClassifier(model_name)
@@ -102,6 +106,7 @@ class TrainTestFramework:
         training_stats = []
         print("=====================================")
         print(f"Train model: {self.model_name} + {self.model_type}")
+        print(f"Freezed pretrain: {self.freeze_pretrain}")
         print(f'Use batch size: {batch_size}')
         print(f'Use epoch: {epoch}') 
         print(f'Use learning_rate: {learning_rate}') 
@@ -184,6 +189,7 @@ class TrainTestFramework:
         test_dataloader, test_size = self.prepare_data(self.test_data_path, batch_size)
         
         self.model.load_state_dict(torch.load(self.model_path))
+        
         device = utils.get_device(cuda)
         model = self.model.to(device)
         

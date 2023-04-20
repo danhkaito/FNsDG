@@ -30,6 +30,16 @@ train_args = {
     'cuda': model_conf['cuda']
 }
 
-train_test = TrainTestFramework(**model_args)
+for model_type in conf.MODEL_TYPES:
+    for data in conf.DATA:
+        model_args['train_data'] = data
+        model_args['model_type'] = model_type
+        train_args['epoch'] = 1
+        
+        train_test = TrainTestFramework(**model_args)
+        train_test.train(**train_args)
+        
+
+# train_test = TrainTestFramework(**model_args)
 # train_test.train(**train_args)
-train_test.test(32)
+# train_test.test(32)

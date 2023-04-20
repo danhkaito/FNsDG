@@ -15,5 +15,5 @@ MODEL_CONF = {
    'max_length': 512,
    'cuda': True,
    'folder_data': "../../data",
-   'folder_model':"../../saved/baselines"
+   'folder_model':"../../saved/baselines/confing1"
 }
