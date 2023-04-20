@@ -6,7 +6,7 @@ import torch.nn as nn
 from torch.optim import AdamW
 from torch.utils.data import DataLoader, RandomSampler, SequentialSampler, random_split
 # import matplotlib.pyplot as plt
-from tqdm import tqdm
+# from tqdm import tqdm
 
 from transformers import AutoTokenizer
 
@@ -105,7 +105,7 @@ class TrainTestFramework:
     
         # Begin Training
         training_stats = []
-        print("\n")
+        print("")
         print(f"Train model: {self.model_name} + {self.model_type}")
         print(f"Freezed pretrain: {self.freeze_pretrain}")
         print(f"Train dataset: {self.train_data}")
@@ -127,7 +127,7 @@ class TrainTestFramework:
             total_acc_train = 0
             total_loss_train = 0
             model.train()
-            for train_input_ids, train_input_mask, train_label in tqdm(train_dataloader):
+            for train_input_ids, train_input_mask, train_label in train_dataloader:
                 train_input_ids = train_input_ids.to(device)
                 train_input_mask = train_input_mask.to(device)
                 train_label = train_label.to(device)
@@ -204,7 +204,7 @@ class TrainTestFramework:
         
         pred_prob, true_labels = [], []
         model.eval()
-        for test_input_ids, test_input_mask, test_label in tqdm(test_dataloader):
+        for test_input_ids, test_input_mask, test_label in test_dataloader:
             
             test_input_ids = test_input_ids.to(device)
             test_input_mask = test_input_mask.to(device)
@@ -224,7 +224,7 @@ class TrainTestFramework:
             # predictions.append(np.argmax(output, axis=1).flatten())
             true_labels.append(label_ids)
 
-        print('DONE.')
+        print('')
         pred_prob = torch.cat(pred_prob, axis=0)
         true_labels = torch.cat(true_labels, axis=0)
         

@@ -37,8 +37,12 @@ train_args = {
     'cuda': model_conf['cuda']
 }
 
+# Erase file
+open(f'{OUTPUT_FOLDER}/train.txt' 'w').close()
+open(f'{OUTPUT_FOLDER}/test.txt' 'w').close()
+
 for model_type in conf.MODEL_TYPES:
-    for data in conf.DATA:
+    for data in conf.DATA[1:2]:
         
         model_args['train_data'] = data
         model_args['model_type'] = model_type
@@ -57,7 +61,7 @@ for model_type in conf.MODEL_TYPES:
             sys.stdout = f
             
             for test_data in conf.DATA:
-                print(f"\n\n#==============[Train:{model_type}/{data}/Test:{test_data}]=============#")
+                print(f"\n\n#==============[Train:{model_type}+{data}/Test:{test_data}]=============#")
                 train_test.test(test_data, batch_size=32, load_from_disk=False)
         
 
