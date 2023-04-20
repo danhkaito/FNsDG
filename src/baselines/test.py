@@ -79,38 +79,33 @@ model = model.to(device)
 
 
 def test():
-    pred_prob, predictions , true_labels = [], [], []
+    pred_prob, true_labels = [], []
     model.eval()
-    for batch in tqdm(test_dataloader):
-    # Add batch to GPU
-        batch = tuple(t.to(device) for t in batch)
+    for test_input_ids, test_input_mask, test_label in tqdm(test_dataloader):
         
-        # Unpack the inputs from our dataloader
-        b_input_ids, b_input_mask, b_labels = batch
+        test_input_ids = test_input_ids.to(device)
+        test_input_mask = test_input_mask.to(device)
         
         # Telling the model not to compute or store gradients, saving memory and 
         # speeding up prediction
         with torch.no_grad():
             # Forward pass, calculate logit predictions.
-            output = model(b_input_ids, b_input_mask)
-
-        
+            output = model(test_input_ids, test_input_mask)
 
         # Move logits and labels to CPU
-        output = output.detach().cpu().numpy()
-        label_ids = b_labels.to('cpu').numpy()
+        output = output.detach().cpu()
+        label_ids = test_label
         
         # Store predictions and true labels
         pred_prob.append(output)
         # predictions.append(np.argmax(output, axis=1).flatten())
-        true_labels.append(label_ids.flatten())
+        true_labels.append(label_ids)
 
     print('DONE.')
-    pred_prob = (np.concatenate(pred_prob, axis=0))
-    true_labels = (np.concatenate(true_labels, axis=0))
+    pred_prob = torch.cat(pred_prob, axis=0)
+    true_labels = torch.cat(true_labels, axis=0)
     
-    
-    
+    utils.print_metrics(true_labels, pred_prob)
 
     # print(f"Accuracy: {accuracy_score(true_labels, pred_labels)}\n \
     #     Precsion, Recall, F1-Score Label 1: {precision_recall_fscore_support(true_labels, pred_labels, average='binary', pos_label = 1)}\n\
