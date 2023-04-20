@@ -34,13 +34,13 @@ class TrainTestFramework:
         if model_type == 'mlp':
             self.model = BertClassifier(model_name)
         elif model_type == 'lstm':
-            model = BertLSTM(model_name)
+            self.model = BertLSTM(model_name)
         elif model_type == 'cnn':
             self.model = fakeBERT(model_name)
             
         if freeze_pretrain is True:
             print("Freeze pretrained model")
-            for param in model.bert.parameters():
+            for param in self.model.bert.parameters():
                 param.requires_grad = False
     
     
