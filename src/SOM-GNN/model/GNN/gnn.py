@@ -56,9 +56,11 @@ class FNGCN(torch.nn.Module):
         # x_style_content = self.style_enc(x_style)
         # x = torch.cat((x_content_enc, x_style_content),1)
         # # First Message Passing Layer (Transformation)
+        x = x_content
+
         for i in range (self.n_hop):
 
-            x = self.convs[i](x_content, edge_index)
+            x = self.convs[i](x, edge_index)
             x = F.relu(x)
             x = F.dropout(x, p=self.dropout, training=self.training)
 
@@ -86,9 +88,11 @@ class FNRGCN(torch.nn.Module):
         # x_style_content = self.style_enc(x_style)
         # x = torch.cat((x_content_enc, x_style_content),1)
         # # First Message Passing Layer (Transformation)
+        x = x_content
+
         for i in range (self.n_hop):
 
-            x = self.convs[i](x_content, edge_index, edge_type)
+            x = self.convs[i](x, edge_index, edge_type)
             x = F.relu(x)
             x = F.dropout(x, p=self.dropout, training=self.training)
 

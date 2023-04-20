@@ -89,12 +89,12 @@ model_dict={
     "RGCN": FNRGCN(args.nhid1, args.nhid2, som.size[2], args.num_classes, args.n_hop, args.dropout, args.seed),
 
 }
-
-FOLDER = f"../../saved/SOM-GNN/model/GNN/"
+connected = "Connected" if args.som_connected=="True" else "UnConnected"
+FOLDER = f"../../saved/SOM-GNN/model/GNN/{args.train}/{args.embedding_model}/"
 if not os.path.exists(FOLDER):
     os.makedirs(FOLDER)
 
-model_fakenew = torch.load(f"{FOLDER}{args.train}/{args.embedding_model}/{args.gnn_model}_{args.graph_mode}.pt")
+model_fakenew = torch.load(f"{FOLDER}{args.gnn_model}_{args.graph_mode}_{connected}.pt")
 
 # model_fakenew = GIN(16)
 print(model_fakenew)
@@ -129,7 +129,8 @@ def test():
     
     print(f"Accuracy: {accuracy_score(true_labels, pred_labels)}\n \
           Precsion, Recall, F1-Score Label 1: {precision_recall_fscore_support(true_labels, pred_labels, average='binary', pos_label = 1)}\n\
-          Precsion, Recall, F1-Score Label 0: {precision_recall_fscore_support(true_labels, pred_labels, average='binary', pos_label = 0)}")
+          Precsion, Recall, F1-Score Label 0: {precision_recall_fscore_support(true_labels, pred_labels, average='binary', pos_label = 0)}\n\
+          F1_ Micro: {f1_score(true_labels, pred_labels, average='micro')}")
 
       
 test()
