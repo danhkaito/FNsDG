@@ -54,7 +54,7 @@ for ep in range(epochs):
 som_viz = SOMVisualize(som)
 som_viz.viz_loss(losses)
 
-FOLDER = f"../saved/SOM-GNN/model/SOM/{args.train}/{args.embedding_model}/"
+FOLDER = f"../../saved/SOM-GNN/model/SOM/{args.train}/{args.embedding_model}/"
 if not os.path.exists(FOLDER):
     os.makedirs(FOLDER)
 
