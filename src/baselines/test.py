@@ -24,7 +24,7 @@ LR = args.lr
 EPS = args.eps
 
 TEST_PATH = f'../../data/{args.test}/test.csv'
-SAVE_PATH = f'../../saved/baselines/{args.model_name}_{args.model}_{args.dataset}.pt'
+SAVE_PATH = f'../../saved/baselines/{args.model_name}_{args.model}_{args.train}.pt'
 #-----------------------------------#
 
 utils.set_seed(args.seed)
