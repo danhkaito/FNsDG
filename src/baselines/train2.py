@@ -5,7 +5,7 @@ import importlib
 parser = parser = get_parser()
 args = parser.parse_args()
 
-conf = importlib.import_module(args.config+'.py')
+conf = importlib.import_module(args.config)
 
 model_conf = conf.MODEL_CONF
 
