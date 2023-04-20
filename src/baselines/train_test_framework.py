@@ -15,19 +15,20 @@ from data import FakeNewsDataset
 import utils
 
 class TrainTestFramework:
-    def __init__(self, model_type, model_name, train_data, test_data, max_length, folder_data, folder_model, freeze_pretrain = False):
+    def __init__(self, model_type, model_name, train_data, max_length, folder_data, folder_model, freeze_pretrain = False):
         
         if freeze_pretrain:
             t = 'freezed'
         else: t = 'unfreezed'
         
         self.model_name = model_name
+        self.train_data = train_data
         self.model_type = model_type
         self.max_length = max_length
+        self.folder_data = folder_data
         self.freeze_pretrain = freeze_pretrain
         
         self.train_data_path = f'{folder_data}/{train_data}/train.csv'
-        self.test_data_path = f'{folder_data}/{test_data}/test.csv'
         self.model_path = f'{folder_model}/{model_name}_{model_type}_{train_data}_{t}.pt'
         
         if model_type == 'mlp':
@@ -107,6 +108,7 @@ class TrainTestFramework:
         print("=====================================")
         print(f"Train model: {self.model_name} + {self.model_type}")
         print(f"Freezed pretrain: {self.freeze_pretrain}")
+        print(f"Train dataset: {self.train_data}")
         print(f'Use batch size: {batch_size}')
         print(f'Use epoch: {epoch}') 
         print(f'Use learning_rate: {learning_rate}') 
@@ -184,11 +186,13 @@ class TrainTestFramework:
             
         return training_stats
     
-    def test(self, batch_size=32, cuda = True):
+    def test(self, test_data, batch_size=32, load_from_disk = True, cuda = True):
         
-        test_dataloader, test_size = self.prepare_data(self.test_data_path, batch_size)
+        test_data_path = f'{self.folder_data}/{test_data}/test.csv'
+        test_dataloader, test_size = self.prepare_data(test_data_path, batch_size)
         
-        self.model.load_state_dict(torch.load(self.model_path))
+        if load_from_disk:
+            self.model.load_state_dict(torch.load(self.model_path))
         
         device = utils.get_device(cuda)
         model = self.model.to(device)
