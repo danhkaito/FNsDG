@@ -4,7 +4,7 @@ DATA = ['Liar', 'FakeorReal', 'FND']
 
 MODEL_CONF = {
    'seed': 40,
-   'batch_size': 1,
+   'batch_size': 32,
    'use_early_stopping': True,
    'patience': 5,
    'freeze_pretrain': False,
