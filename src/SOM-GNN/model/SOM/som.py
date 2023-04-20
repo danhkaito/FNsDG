@@ -10,8 +10,8 @@ class Som(nn.Module):
         self.size = size
         self.lr = torch.tensor(lr)
         self.lr0 = torch.tensor(lr)
-        self.dRadius = torch.tensor(max(size[:-1]) / 2.0)
-        self.dRadius0 = torch.tensor(max(size[:-1]) / 2.0)
+        self.dRadius = torch.tensor(max(size[:-1]) / 3.0)
+        self.dRadius0 = torch.tensor(max(size[:-1]) / 3.0)
         self.weights = nn.Parameter((torch.randn(self.size)), requires_grad=False)
         self.map_indices = torch.ones(size[0], size[1]).nonzero().view(-1, 2)
         self._recorder = dict()
