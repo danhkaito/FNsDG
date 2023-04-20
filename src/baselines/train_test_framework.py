@@ -209,11 +209,11 @@ class TrainTestFramework:
             # predictions.append(np.argmax(output, axis=1).flatten())
             true_labels.append(label_ids)
 
-            print('DONE.')
-            pred_prob = torch.cat(pred_prob, axis=0)
-            true_labels = torch.cat(true_labels, axis=0)
-            
-            utils.print_metrics(true_labels, pred_prob)
+        print('DONE.')
+        pred_prob = torch.cat(pred_prob, axis=0)
+        true_labels = torch.cat(true_labels, axis=0)
+        
+        utils.print_metrics(true_labels, pred_prob)
         
         
         
