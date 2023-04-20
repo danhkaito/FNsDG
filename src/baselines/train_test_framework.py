@@ -105,7 +105,7 @@ class TrainTestFramework:
     
         # Begin Training
         training_stats = []
-        print("=====================================")
+        print("\n")
         print(f"Train model: {self.model_name} + {self.model_type}")
         print(f"Freezed pretrain: {self.freeze_pretrain}")
         print(f"Train dataset: {self.train_data}")
