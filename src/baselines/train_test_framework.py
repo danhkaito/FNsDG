@@ -223,8 +223,13 @@ class TrainTestFramework:
             pred_prob.append(output)
             # predictions.append(np.argmax(output, axis=1).flatten())
             true_labels.append(label_ids)
-
         print('')
+        print(f"Train model: {self.model_name} + {self.model_type}")
+        print(f"Freezed pretrain: {self.freeze_pretrain}")
+        print(f"Train dataset: {self.train_data}")
+        print(f"Test dataset: {test_data}")
+        print('')
+        
         pred_prob = torch.cat(pred_prob, axis=0)
         true_labels = torch.cat(true_labels, axis=0)
         
