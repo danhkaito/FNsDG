@@ -52,7 +52,7 @@ class TrainTestFramework:
             print('{:>5,} Testing samples'.format(train_size))
             dataloader = DataLoader(
                         dataset,  # The training samples.
-                        sampler = SequentialSampler(train_dataset), # Select batches sequencely
+                        sampler = SequentialSampler(dataset), # Select batches sequencely
                         batch_size = batch_size # Trains with this batch size.
                     )
             return dataloader, train_size

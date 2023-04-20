@@ -31,5 +31,5 @@ train_args = {
 }
 
 train_test = TrainTestFramework(**model_args)
-train_test.train(**train_args)
-train_test.test(322)
+# train_test.train(**train_args)
+train_test.test(32)
