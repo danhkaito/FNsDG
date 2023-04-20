@@ -41,7 +41,7 @@ train_args = {
 open(f'{OUTPUT_FOLDER}/train.txt', 'w').close()
 open(f'{OUTPUT_FOLDER}/test.txt', 'w').close()
 
-for model_type in conf.MODEL_TYPES:
+for model_type in conf.MODEL_TYPES[1:2]:
     for data in conf.DATA[1:2]:
         
         model_args['train_data'] = data
