@@ -1,0 +1,756 @@
+
+
+#==============[Train:mlp+Liar/Test:Liar]=============#
+2,551 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + mlp
+Freezed pretrain: False
+Train dataset: Liar
+Test dataset: Liar
+
+Accuracy: 61.74%
+
+AUC: 65.34%
+
+Label 0:
+        Precision: 59.25%
+        RecaLL: 52.87%
+        F1: 55.88%
+Label 1:
+        Precision: 63.46%
+        RecaLL: 69.25%
+        F1: 66.23%
+Macro:
+        Precision: 61.36%
+        RecaLL: 61.06%
+        F1: 61.05%
+
+
+#==============[Train:mlp+Liar/Test:FakeorReal]=============#
+1,268 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + mlp
+Freezed pretrain: False
+Train dataset: Liar
+Test dataset: FakeorReal
+
+Accuracy: 60.88%
+
+AUC: 66.47%
+
+Label 0:
+        Precision: 63.25%
+        RecaLL: 51.66%
+        F1: 56.87%
+Label 1:
+        Precision: 59.25%
+        RecaLL: 70.08%
+        F1: 64.21%
+Macro:
+        Precision: 61.25%
+        RecaLL: 60.87%
+        F1: 60.54%
+
+
+#==============[Train:mlp+Liar/Test:FND]=============#
+  998 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + mlp
+Freezed pretrain: False
+Train dataset: Liar
+Test dataset: FND
+
+Accuracy: 51.80%
+
+AUC: 53.20%
+
+Label 0:
+        Precision: 41.94%
+        RecaLL: 50.37%
+        F1: 45.77%
+Label 1:
+        Precision: 61.09%
+        RecaLL: 52.77%
+        F1: 56.63%
+Macro:
+        Precision: 51.52%
+        RecaLL: 51.57%
+        F1: 51.20%
+
+
+#==============[Train:mlp+FakeorReal/Test:Liar]=============#
+2,551 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + mlp
+Freezed pretrain: False
+Train dataset: FakeorReal
+Test dataset: Liar
+
+Accuracy: 54.61%
+
+AUC: 48.30%
+
+Label 0:
+        Precision: 53.11%
+        RecaLL: 8.04%
+        F1: 13.97%
+Label 1:
+        Precision: 54.72%
+        RecaLL: 93.99%
+        F1: 69.17%
+Macro:
+        Precision: 53.91%
+        RecaLL: 51.02%
+        F1: 41.57%
+
+
+#==============[Train:mlp+FakeorReal/Test:FakeorReal]=============#
+1,268 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + mlp
+Freezed pretrain: False
+Train dataset: FakeorReal
+Test dataset: FakeorReal
+
+Accuracy: 97.71%
+
+AUC: 99.75%
+
+Label 0:
+        Precision: 97.63%
+        RecaLL: 97.79%
+        F1: 97.71%
+Label 1:
+        Precision: 97.79%
+        RecaLL: 97.64%
+        F1: 97.71%
+Macro:
+        Precision: 97.71%
+        RecaLL: 97.71%
+        F1: 97.71%
+
+
+#==============[Train:mlp+FakeorReal/Test:FND]=============#
+  998 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + mlp
+Freezed pretrain: False
+Train dataset: FakeorReal
+Test dataset: FND
+
+Accuracy: 49.60%
+
+AUC: 51.40%
+
+Label 0:
+        Precision: 41.13%
+        RecaLL: 57.57%
+        F1: 47.98%
+Label 1:
+        Precision: 60.60%
+        RecaLL: 44.20%
+        F1: 51.12%
+Macro:
+        Precision: 50.87%
+        RecaLL: 50.88%
+        F1: 49.55%
+
+
+#==============[Train:mlp+FND/Test:Liar]=============#
+2,551 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + mlp
+Freezed pretrain: False
+Train dataset: FND
+Test dataset: Liar
+
+Accuracy: 55.12%
+
+AUC: 55.17%
+
+Label 0:
+        Precision: 51.13%
+        RecaLL: 46.36%
+        F1: 48.63%
+Label 1:
+        Precision: 57.95%
+        RecaLL: 62.52%
+        F1: 60.15%
+Macro:
+        Precision: 54.54%
+        RecaLL: 54.44%
+        F1: 54.39%
+
+
+#==============[Train:mlp+FND/Test:FakeorReal]=============#
+1,268 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + mlp
+Freezed pretrain: False
+Train dataset: FND
+Test dataset: FakeorReal
+
+Accuracy: 58.52%
+
+AUC: 63.84%
+
+Label 0:
+        Precision: 57.88%
+        RecaLL: 62.09%
+        F1: 59.91%
+Label 1:
+        Precision: 59.25%
+        RecaLL: 54.96%
+        F1: 57.03%
+Macro:
+        Precision: 58.57%
+        RecaLL: 58.52%
+        F1: 58.47%
+
+
+#==============[Train:mlp+FND/Test:FND]=============#
+  998 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + mlp
+Freezed pretrain: False
+Train dataset: FND
+Test dataset: FND
+
+Accuracy: 80.56%
+
+AUC: 85.57%
+
+Label 0:
+        Precision: 80.65%
+        RecaLL: 68.24%
+        F1: 73.92%
+Label 1:
+        Precision: 80.52%
+        RecaLL: 88.91%
+        F1: 84.50%
+Macro:
+        Precision: 80.58%
+        RecaLL: 78.57%
+        F1: 79.21%
+
+
+#==============[Train:cnn+Liar/Test:Liar]=============#
+2,551 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + cnn
+Freezed pretrain: False
+Train dataset: Liar
+Test dataset: Liar
+
+Accuracy: 61.86%
+
+AUC: 63.53%
+
+Label 0:
+        Precision: 60.10%
+        RecaLL: 49.87%
+        F1: 54.51%
+Label 1:
+        Precision: 62.93%
+        RecaLL: 72.00%
+        F1: 67.16%
+Macro:
+        Precision: 61.52%
+        RecaLL: 60.93%
+        F1: 60.84%
+
+
+#==============[Train:cnn+Liar/Test:FakeorReal]=============#
+1,268 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + cnn
+Freezed pretrain: False
+Train dataset: Liar
+Test dataset: FakeorReal
+
+Accuracy: 52.76%
+
+AUC: 57.89%
+
+Label 0:
+        Precision: 51.76%
+        RecaLL: 78.99%
+        F1: 62.54%
+Label 1:
+        Precision: 55.96%
+        RecaLL: 26.61%
+        F1: 36.07%
+Macro:
+        Precision: 53.86%
+        RecaLL: 52.80%
+        F1: 49.31%
+
+
+#==============[Train:cnn+Liar/Test:FND]=============#
+  998 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + cnn
+Freezed pretrain: False
+Train dataset: Liar
+Test dataset: FND
+
+Accuracy: 52.10%
+
+AUC: 58.52%
+
+Label 0:
+        Precision: 44.39%
+        RecaLL: 73.70%
+        F1: 55.41%
+Label 1:
+        Precision: 67.78%
+        RecaLL: 37.48%
+        F1: 48.27%
+Macro:
+        Precision: 56.09%
+        RecaLL: 55.59%
+        F1: 51.84%
+
+
+#==============[Train:cnn+FakeorReal/Test:Liar]=============#
+2,551 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + cnn
+Freezed pretrain: False
+Train dataset: FakeorReal
+Test dataset: Liar
+
+Accuracy: 54.25%
+
+AUC: 50.97%
+
+Label 0:
+        Precision: 50.81%
+        RecaLL: 5.39%
+        F1: 9.74%
+Label 1:
+        Precision: 54.43%
+        RecaLL: 95.59%
+        F1: 69.36%
+Macro:
+        Precision: 52.62%
+        RecaLL: 50.49%
+        F1: 39.55%
+
+
+#==============[Train:cnn+FakeorReal/Test:FakeorReal]=============#
+1,268 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + cnn
+Freezed pretrain: False
+Train dataset: FakeorReal
+Test dataset: FakeorReal
+
+Accuracy: 97.79%
+
+AUC: 99.69%
+
+Label 0:
+        Precision: 97.79%
+        RecaLL: 97.79%
+        F1: 97.79%
+Label 1:
+        Precision: 97.80%
+        RecaLL: 97.80%
+        F1: 97.80%
+Macro:
+        Precision: 97.79%
+        RecaLL: 97.79%
+        F1: 97.79%
+
+
+#==============[Train:cnn+FakeorReal/Test:FND]=============#
+  998 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + cnn
+Freezed pretrain: False
+Train dataset: FakeorReal
+Test dataset: FND
+
+Accuracy: 50.90%
+
+AUC: 50.97%
+
+Label 0:
+        Precision: 41.71%
+        RecaLL: 54.34%
+        F1: 47.20%
+Label 1:
+        Precision: 61.10%
+        RecaLL: 48.57%
+        F1: 54.12%
+Macro:
+        Precision: 51.41%
+        RecaLL: 51.46%
+        F1: 50.66%
+
+
+#==============[Train:cnn+FND/Test:Liar]=============#
+2,551 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + cnn
+Freezed pretrain: False
+Train dataset: FND
+Test dataset: Liar
+
+Accuracy: 55.00%
+
+AUC: 58.38%
+
+Label 0:
+        Precision: 50.60%
+        RecaLL: 75.71%
+        F1: 60.66%
+Label 1:
+        Precision: 64.59%
+        RecaLL: 37.48%
+        F1: 47.44%
+Macro:
+        Precision: 57.59%
+        RecaLL: 56.59%
+        F1: 54.05%
+
+
+#==============[Train:cnn+FND/Test:FakeorReal]=============#
+1,268 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + cnn
+Freezed pretrain: False
+Train dataset: FND
+Test dataset: FakeorReal
+
+Accuracy: 43.85%
+
+AUC: 44.13%
+
+Label 0:
+        Precision: 44.20%
+        RecaLL: 47.55%
+        F1: 45.81%
+Label 1:
+        Precision: 43.44%
+        RecaLL: 40.16%
+        F1: 41.73%
+Macro:
+        Precision: 43.82%
+        RecaLL: 43.85%
+        F1: 43.77%
+
+
+#==============[Train:cnn+FND/Test:FND]=============#
+  998 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + cnn
+Freezed pretrain: False
+Train dataset: FND
+Test dataset: FND
+
+Accuracy: 79.46%
+
+AUC: 86.39%
+
+Label 0:
+        Precision: 78.95%
+        RecaLL: 67.00%
+        F1: 72.48%
+Label 1:
+        Precision: 79.73%
+        RecaLL: 87.90%
+        F1: 83.61%
+Macro:
+        Precision: 79.34%
+        RecaLL: 77.45%
+        F1: 78.05%
+
+
+#==============[Train:lstm+Liar/Test:Liar]=============#
+2,551 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + lstm
+Freezed pretrain: False
+Train dataset: Liar
+Test dataset: Liar
+
+Accuracy: 61.07%
+
+AUC: 63.92%
+
+Label 0:
+        Precision: 58.38%
+        RecaLL: 52.44%
+        F1: 55.25%
+Label 1:
+        Precision: 62.96%
+        RecaLL: 68.38%
+        F1: 65.56%
+Macro:
+        Precision: 60.67%
+        RecaLL: 60.41%
+        F1: 60.40%
+
+
+#==============[Train:lstm+Liar/Test:FakeorReal]=============#
+1,268 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + lstm
+Freezed pretrain: False
+Train dataset: Liar
+Test dataset: FakeorReal
+
+Accuracy: 58.28%
+
+AUC: 65.95%
+
+Label 0:
+        Precision: 56.07%
+        RecaLL: 75.83%
+        F1: 64.47%
+Label 1:
+        Precision: 62.86%
+        RecaLL: 40.79%
+        F1: 49.47%
+Macro:
+        Precision: 59.47%
+        RecaLL: 58.31%
+        F1: 56.97%
+
+
+#==============[Train:lstm+Liar/Test:FND]=============#
+  998 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + lstm
+Freezed pretrain: False
+Train dataset: Liar
+Test dataset: FND
+
+Accuracy: 54.01%
+
+AUC: 56.68%
+
+Label 0:
+        Precision: 45.33%
+        RecaLL: 67.49%
+        F1: 54.24%
+Label 1:
+        Precision: 67.09%
+        RecaLL: 44.87%
+        F1: 53.78%
+Macro:
+        Precision: 56.21%
+        RecaLL: 56.18%
+        F1: 54.01%
+
+
+#==============[Train:lstm+FakeorReal/Test:Liar]=============#
+2,551 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + lstm
+Freezed pretrain: False
+Train dataset: FakeorReal
+Test dataset: Liar
+
+Accuracy: 54.29%
+
+AUC: 49.62%
+
+Label 0:
+        Precision: 52.11%
+        RecaLL: 3.17%
+        F1: 5.97%
+Label 1:
+        Precision: 54.35%
+        RecaLL: 97.54%
+        F1: 69.81%
+Macro:
+        Precision: 53.23%
+        RecaLL: 50.35%
+        F1: 37.89%
+
+
+#==============[Train:lstm+FakeorReal/Test:FakeorReal]=============#
+1,268 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + lstm
+Freezed pretrain: False
+Train dataset: FakeorReal
+Test dataset: FakeorReal
+
+Accuracy: 97.87%
+
+AUC: 99.61%
+
+Label 0:
+        Precision: 97.64%
+        RecaLL: 98.10%
+        F1: 97.87%
+Label 1:
+        Precision: 98.10%
+        RecaLL: 97.64%
+        F1: 97.87%
+Macro:
+        Precision: 97.87%
+        RecaLL: 97.87%
+        F1: 97.87%
+
+
+#==============[Train:lstm+FakeorReal/Test:FND]=============#
+  998 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + lstm
+Freezed pretrain: False
+Train dataset: FakeorReal
+Test dataset: FND
+
+Accuracy: 50.90%
+
+AUC: 52.15%
+
+Label 0:
+        Precision: 42.16%
+        RecaLL: 58.06%
+        F1: 48.85%
+Label 1:
+        Precision: 61.85%
+        RecaLL: 46.05%
+        F1: 52.79%
+Macro:
+        Precision: 52.01%
+        RecaLL: 52.06%
+        F1: 50.82%
+
+
+#==============[Train:lstm+FND/Test:Liar]=============#
+2,551 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + lstm
+Freezed pretrain: False
+Train dataset: FND
+Test dataset: Liar
+
+Accuracy: 50.45%
+
+AUC: 56.92%
+
+Label 0:
+        Precision: 47.58%
+        RecaLL: 79.90%
+        F1: 59.64%
+Label 1:
+        Precision: 60.03%
+        RecaLL: 25.54%
+        F1: 35.84%
+Macro:
+        Precision: 53.81%
+        RecaLL: 52.72%
+        F1: 47.74%
+
+
+#==============[Train:lstm+FND/Test:FakeorReal]=============#
+1,268 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + lstm
+Freezed pretrain: False
+Train dataset: FND
+Test dataset: FakeorReal
+
+Accuracy: 49.21%
+
+AUC: 52.03%
+
+Label 0:
+        Precision: 49.30%
+        RecaLL: 60.98%
+        F1: 54.52%
+Label 1:
+        Precision: 49.07%
+        RecaLL: 37.48%
+        F1: 42.50%
+Macro:
+        Precision: 49.18%
+        RecaLL: 49.23%
+        F1: 48.51%
+
+
+#==============[Train:lstm+FND/Test:FND]=============#
+  998 Testing samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + lstm
+Freezed pretrain: False
+Train dataset: FND
+Test dataset: FND
+
+Accuracy: 79.26%
+
+AUC: 87.19%
+
+Label 0:
+        Precision: 75.00%
+        RecaLL: 72.95%
+        F1: 73.96%
+Label 1:
+        Precision: 82.01%
+        RecaLL: 83.53%
+        F1: 82.76%
+Macro:
+        Precision: 78.51%
+        RecaLL: 78.24%
+        F1: 78.36%

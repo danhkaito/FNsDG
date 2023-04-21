@@ -147,7 +147,7 @@ class TrainTestFramework:
                 model.zero_grad()
                 batch_loss.backward()
                 optimizer.step()
-                scheduler.step()
+                # scheduler.step()
             total_acc_val = 0
             total_loss_val = 0
 

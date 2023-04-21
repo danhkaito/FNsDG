@@ -1,0 +1,531 @@
+
+
+#====================[mlp+Liar]======================#
+8,192 training samples
+2,048 validation samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + mlp
+Freezed pretrain: False
+Train dataset: Liar
+Use batch size: 32
+Use epoch: 10
+Use learning_rate: 2e-05
+Use eps: 1e-08
+Use early stopping: False
+Use patience: 5
+Use device: cuda
+
+======== Epoch 1 / 10 ========
+Training...
+Epochs: 1 | Train Loss:  0.0209                 | Train Accuracy:  0.5896                 | Val Loss:  0.0206                 | Val Accuracy:  0.6089
+
+======== Epoch 2 / 10 ========
+Training...
+Epochs: 2 | Train Loss:  0.0191                 | Train Accuracy:  0.6731                 | Val Loss:  0.0202                 | Val Accuracy:  0.6250
+
+======== Epoch 3 / 10 ========
+Training...
+Epochs: 3 | Train Loss:  0.0143                 | Train Accuracy:  0.7925                 | Val Loss:  0.0232                 | Val Accuracy:  0.6123
+
+======== Epoch 4 / 10 ========
+Training...
+Epochs: 4 | Train Loss:  0.0076                 | Train Accuracy:  0.9025                 | Val Loss:  0.0311                 | Val Accuracy:  0.6279
+
+======== Epoch 5 / 10 ========
+Training...
+Epochs: 5 | Train Loss:  0.0033                 | Train Accuracy:  0.9630                 | Val Loss:  0.0386                 | Val Accuracy:  0.6211
+
+======== Epoch 6 / 10 ========
+Training...
+Epochs: 6 | Train Loss:  0.0016                 | Train Accuracy:  0.9844                 | Val Loss:  0.0494                 | Val Accuracy:  0.6128
+
+======== Epoch 7 / 10 ========
+Training...
+Epochs: 7 | Train Loss:  0.0011                 | Train Accuracy:  0.9877                 | Val Loss:  0.0514                 | Val Accuracy:  0.6196
+
+======== Epoch 8 / 10 ========
+Training...
+Epochs: 8 | Train Loss:  0.0007                 | Train Accuracy:  0.9941                 | Val Loss:  0.0571                 | Val Accuracy:  0.6187
+
+======== Epoch 9 / 10 ========
+Training...
+Epochs: 9 | Train Loss:  0.0005                 | Train Accuracy:  0.9949                 | Val Loss:  0.0594                 | Val Accuracy:  0.6162
+
+======== Epoch 10 / 10 ========
+Training...
+Epochs: 10 | Train Loss:  0.0004                 | Train Accuracy:  0.9958                 | Val Loss:  0.0604                 | Val Accuracy:  0.6133
+Saving model...
+
+
+#====================[mlp+FakeorReal]======================#
+4,053 training samples
+1,014 validation samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + mlp
+Freezed pretrain: False
+Train dataset: FakeorReal
+Use batch size: 32
+Use epoch: 10
+Use learning_rate: 2e-05
+Use eps: 1e-08
+Use early stopping: False
+Use patience: 5
+Use device: cuda
+
+======== Epoch 1 / 10 ========
+Training...
+Epochs: 1 | Train Loss:  0.0080                 | Train Accuracy:  0.8986                 | Val Loss:  0.0038                 | Val Accuracy:  0.9556
+
+======== Epoch 2 / 10 ========
+Training...
+Epochs: 2 | Train Loss:  0.0020                 | Train Accuracy:  0.9832                 | Val Loss:  0.0031                 | Val Accuracy:  0.9734
+
+======== Epoch 3 / 10 ========
+Training...
+Epochs: 3 | Train Loss:  0.0009                 | Train Accuracy:  0.9924                 | Val Loss:  0.0037                 | Val Accuracy:  0.9724
+
+======== Epoch 4 / 10 ========
+Training...
+Epochs: 4 | Train Loss:  0.0006                 | Train Accuracy:  0.9948                 | Val Loss:  0.0042                 | Val Accuracy:  0.9576
+
+======== Epoch 5 / 10 ========
+Training...
+Epochs: 5 | Train Loss:  0.0003                 | Train Accuracy:  0.9978                 | Val Loss:  0.0026                 | Val Accuracy:  0.9822
+
+======== Epoch 6 / 10 ========
+Training...
+Epochs: 6 | Train Loss:  0.0001                 | Train Accuracy:  0.9998                 | Val Loss:  0.0028                 | Val Accuracy:  0.9813
+
+======== Epoch 7 / 10 ========
+Training...
+Epochs: 7 | Train Loss:  0.0001                 | Train Accuracy:  0.9995                 | Val Loss:  0.0029                 | Val Accuracy:  0.9803
+
+======== Epoch 8 / 10 ========
+Training...
+Epochs: 8 | Train Loss:  0.0000                 | Train Accuracy:  0.9998                 | Val Loss:  0.0028                 | Val Accuracy:  0.9822
+
+======== Epoch 9 / 10 ========
+Training...
+Epochs: 9 | Train Loss:  0.0000                 | Train Accuracy:  1.0000                 | Val Loss:  0.0028                 | Val Accuracy:  0.9813
+
+======== Epoch 10 / 10 ========
+Training...
+Epochs: 10 | Train Loss:  0.0000                 | Train Accuracy:  0.9998                 | Val Loss:  0.0028                 | Val Accuracy:  0.9832
+Saving model...
+
+
+#====================[mlp+FND]======================#
+3,190 training samples
+  798 validation samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + mlp
+Freezed pretrain: False
+Train dataset: FND
+Use batch size: 32
+Use epoch: 10
+Use learning_rate: 2e-05
+Use eps: 1e-08
+Use early stopping: False
+Use patience: 5
+Use device: cuda
+
+======== Epoch 1 / 10 ========
+Training...
+Epochs: 1 | Train Loss:  0.0202                 | Train Accuracy:  0.6254                 | Val Loss:  0.0205                 | Val Accuracy:  0.6479
+
+======== Epoch 2 / 10 ========
+Training...
+Epochs: 2 | Train Loss:  0.0155                 | Train Accuracy:  0.7677                 | Val Loss:  0.0150                 | Val Accuracy:  0.7531
+
+======== Epoch 3 / 10 ========
+Training...
+Epochs: 3 | Train Loss:  0.0108                 | Train Accuracy:  0.8505                 | Val Loss:  0.0180                 | Val Accuracy:  0.7594
+
+======== Epoch 4 / 10 ========
+Training...
+Epochs: 4 | Train Loss:  0.0065                 | Train Accuracy:  0.9266                 | Val Loss:  0.0184                 | Val Accuracy:  0.7632
+
+======== Epoch 5 / 10 ========
+Training...
+Epochs: 5 | Train Loss:  0.0037                 | Train Accuracy:  0.9646                 | Val Loss:  0.0270                 | Val Accuracy:  0.7544
+
+======== Epoch 6 / 10 ========
+Training...
+Epochs: 6 | Train Loss:  0.0026                 | Train Accuracy:  0.9765                 | Val Loss:  0.0287                 | Val Accuracy:  0.7506
+
+======== Epoch 7 / 10 ========
+Training...
+Epochs: 7 | Train Loss:  0.0022                 | Train Accuracy:  0.9809                 | Val Loss:  0.0249                 | Val Accuracy:  0.7807
+
+======== Epoch 8 / 10 ========
+Training...
+Epochs: 8 | Train Loss:  0.0016                 | Train Accuracy:  0.9865                 | Val Loss:  0.0262                 | Val Accuracy:  0.7682
+
+======== Epoch 9 / 10 ========
+Training...
+Epochs: 9 | Train Loss:  0.0012                 | Train Accuracy:  0.9890                 | Val Loss:  0.0274                 | Val Accuracy:  0.7782
+
+======== Epoch 10 / 10 ========
+Training...
+Epochs: 10 | Train Loss:  0.0011                 | Train Accuracy:  0.9909                 | Val Loss:  0.0270                 | Val Accuracy:  0.7744
+Saving model...
+
+
+#====================[cnn+Liar]======================#
+8,192 training samples
+2,048 validation samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + cnn
+Freezed pretrain: False
+Train dataset: Liar
+Use batch size: 32
+Use epoch: 10
+Use learning_rate: 2e-05
+Use eps: 1e-08
+Use early stopping: False
+Use patience: 5
+Use device: cuda
+
+======== Epoch 1 / 10 ========
+Training...
+Epochs: 1 | Train Loss:  0.0208                 | Train Accuracy:  0.5917                 | Val Loss:  0.0206                 | Val Accuracy:  0.5967
+
+======== Epoch 2 / 10 ========
+Training...
+Epochs: 2 | Train Loss:  0.0196                 | Train Accuracy:  0.6506                 | Val Loss:  0.0200                 | Val Accuracy:  0.6460
+
+======== Epoch 3 / 10 ========
+Training...
+Epochs: 3 | Train Loss:  0.0164                 | Train Accuracy:  0.7595                 | Val Loss:  0.0214                 | Val Accuracy:  0.6201
+
+======== Epoch 4 / 10 ========
+Training...
+Epochs: 4 | Train Loss:  0.0113                 | Train Accuracy:  0.8584                 | Val Loss:  0.0253                 | Val Accuracy:  0.6191
+
+======== Epoch 5 / 10 ========
+Training...
+Epochs: 5 | Train Loss:  0.0066                 | Train Accuracy:  0.9260                 | Val Loss:  0.0314                 | Val Accuracy:  0.6084
+
+======== Epoch 6 / 10 ========
+Training...
+Epochs: 6 | Train Loss:  0.0038                 | Train Accuracy:  0.9594                 | Val Loss:  0.0416                 | Val Accuracy:  0.6240
+
+======== Epoch 7 / 10 ========
+Training...
+Epochs: 7 | Train Loss:  0.0022                 | Train Accuracy:  0.9771                 | Val Loss:  0.0465                 | Val Accuracy:  0.6060
+
+======== Epoch 8 / 10 ========
+Training...
+Epochs: 8 | Train Loss:  0.0014                 | Train Accuracy:  0.9863                 | Val Loss:  0.0501                 | Val Accuracy:  0.6025
+
+======== Epoch 9 / 10 ========
+Training...
+Epochs: 9 | Train Loss:  0.0009                 | Train Accuracy:  0.9917                 | Val Loss:  0.0543                 | Val Accuracy:  0.6064
+
+======== Epoch 10 / 10 ========
+Training...
+Epochs: 10 | Train Loss:  0.0006                 | Train Accuracy:  0.9951                 | Val Loss:  0.0558                 | Val Accuracy:  0.6074
+Saving model...
+
+
+#====================[cnn+FakeorReal]======================#
+4,053 training samples
+1,014 validation samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + cnn
+Freezed pretrain: False
+Train dataset: FakeorReal
+Use batch size: 32
+Use epoch: 10
+Use learning_rate: 2e-05
+Use eps: 1e-08
+Use early stopping: False
+Use patience: 5
+Use device: cuda
+
+======== Epoch 1 / 10 ========
+Training...
+Epochs: 1 | Train Loss:  0.0118                 | Train Accuracy:  0.8520                 | Val Loss:  0.0036                 | Val Accuracy:  0.9625
+
+======== Epoch 2 / 10 ========
+Training...
+Epochs: 2 | Train Loss:  0.0022                 | Train Accuracy:  0.9810                 | Val Loss:  0.0041                 | Val Accuracy:  0.9576
+
+======== Epoch 3 / 10 ========
+Training...
+Epochs: 3 | Train Loss:  0.0014                 | Train Accuracy:  0.9889                 | Val Loss:  0.0025                 | Val Accuracy:  0.9724
+
+======== Epoch 4 / 10 ========
+Training...
+Epochs: 4 | Train Loss:  0.0006                 | Train Accuracy:  0.9958                 | Val Loss:  0.0025                 | Val Accuracy:  0.9773
+
+======== Epoch 5 / 10 ========
+Training...
+Epochs: 5 | Train Loss:  0.0003                 | Train Accuracy:  0.9983                 | Val Loss:  0.0022                 | Val Accuracy:  0.9813
+
+======== Epoch 6 / 10 ========
+Training...
+Epochs: 6 | Train Loss:  0.0002                 | Train Accuracy:  0.9990                 | Val Loss:  0.0028                 | Val Accuracy:  0.9753
+
+======== Epoch 7 / 10 ========
+Training...
+Epochs: 7 | Train Loss:  0.0001                 | Train Accuracy:  0.9998                 | Val Loss:  0.0027                 | Val Accuracy:  0.9793
+
+======== Epoch 8 / 10 ========
+Training...
+Epochs: 8 | Train Loss:  0.0001                 | Train Accuracy:  0.9995                 | Val Loss:  0.0035                 | Val Accuracy:  0.9734
+
+======== Epoch 9 / 10 ========
+Training...
+Epochs: 9 | Train Loss:  0.0001                 | Train Accuracy:  0.9995                 | Val Loss:  0.0033                 | Val Accuracy:  0.9763
+
+======== Epoch 10 / 10 ========
+Training...
+Epochs: 10 | Train Loss:  0.0001                 | Train Accuracy:  0.9998                 | Val Loss:  0.0029                 | Val Accuracy:  0.9753
+Saving model...
+
+
+#====================[cnn+FND]======================#
+3,190 training samples
+  798 validation samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + cnn
+Freezed pretrain: False
+Train dataset: FND
+Use batch size: 32
+Use epoch: 10
+Use learning_rate: 2e-05
+Use eps: 1e-08
+Use early stopping: False
+Use patience: 5
+Use device: cuda
+
+======== Epoch 1 / 10 ========
+Training...
+Epochs: 1 | Train Loss:  0.0209                 | Train Accuracy:  0.5853                 | Val Loss:  0.0193                 | Val Accuracy:  0.6529
+
+======== Epoch 2 / 10 ========
+Training...
+Epochs: 2 | Train Loss:  0.0176                 | Train Accuracy:  0.7207                 | Val Loss:  0.0153                 | Val Accuracy:  0.7769
+
+======== Epoch 3 / 10 ========
+Training...
+Epochs: 3 | Train Loss:  0.0133                 | Train Accuracy:  0.8078                 | Val Loss:  0.0154                 | Val Accuracy:  0.7882
+
+======== Epoch 4 / 10 ========
+Training...
+Epochs: 4 | Train Loss:  0.0093                 | Train Accuracy:  0.8837                 | Val Loss:  0.0136                 | Val Accuracy:  0.8133
+
+======== Epoch 5 / 10 ========
+Training...
+Epochs: 5 | Train Loss:  0.0056                 | Train Accuracy:  0.9398                 | Val Loss:  0.0172                 | Val Accuracy:  0.7820
+
+======== Epoch 6 / 10 ========
+Training...
+Epochs: 6 | Train Loss:  0.0038                 | Train Accuracy:  0.9630                 | Val Loss:  0.0193                 | Val Accuracy:  0.8033
+
+======== Epoch 7 / 10 ========
+Training...
+Epochs: 7 | Train Loss:  0.0027                 | Train Accuracy:  0.9759                 | Val Loss:  0.0218                 | Val Accuracy:  0.7832
+
+======== Epoch 8 / 10 ========
+Training...
+Epochs: 8 | Train Loss:  0.0020                 | Train Accuracy:  0.9831                 | Val Loss:  0.0241                 | Val Accuracy:  0.7920
+
+======== Epoch 9 / 10 ========
+Training...
+Epochs: 9 | Train Loss:  0.0015                 | Train Accuracy:  0.9887                 | Val Loss:  0.0267                 | Val Accuracy:  0.7957
+
+======== Epoch 10 / 10 ========
+Training...
+Epochs: 10 | Train Loss:  0.0012                 | Train Accuracy:  0.9906                 | Val Loss:  0.0257                 | Val Accuracy:  0.7920
+Saving model...
+
+
+#====================[lstm+Liar]======================#
+8,192 training samples
+2,048 validation samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + lstm
+Freezed pretrain: False
+Train dataset: Liar
+Use batch size: 32
+Use epoch: 10
+Use learning_rate: 2e-05
+Use eps: 1e-08
+Use early stopping: False
+Use patience: 5
+Use device: cuda
+
+======== Epoch 1 / 10 ========
+Training...
+Epochs: 1 | Train Loss:  0.0206                 | Train Accuracy:  0.6046                 | Val Loss:  0.0204                 | Val Accuracy:  0.6270
+
+======== Epoch 2 / 10 ========
+Training...
+Epochs: 2 | Train Loss:  0.0190                 | Train Accuracy:  0.6711                 | Val Loss:  0.0205                 | Val Accuracy:  0.6313
+
+======== Epoch 3 / 10 ========
+Training...
+Epochs: 3 | Train Loss:  0.0153                 | Train Accuracy:  0.7750                 | Val Loss:  0.0230                 | Val Accuracy:  0.6406
+
+======== Epoch 4 / 10 ========
+Training...
+Epochs: 4 | Train Loss:  0.0094                 | Train Accuracy:  0.8828                 | Val Loss:  0.0277                 | Val Accuracy:  0.6318
+
+======== Epoch 5 / 10 ========
+Training...
+Epochs: 5 | Train Loss:  0.0050                 | Train Accuracy:  0.9452                 | Val Loss:  0.0356                 | Val Accuracy:  0.6338
+
+======== Epoch 6 / 10 ========
+Training...
+Epochs: 6 | Train Loss:  0.0030                 | Train Accuracy:  0.9708                 | Val Loss:  0.0398                 | Val Accuracy:  0.6255
+
+======== Epoch 7 / 10 ========
+Training...
+Epochs: 7 | Train Loss:  0.0020                 | Train Accuracy:  0.9808                 | Val Loss:  0.0435                 | Val Accuracy:  0.6230
+
+======== Epoch 8 / 10 ========
+Training...
+Epochs: 8 | Train Loss:  0.0013                 | Train Accuracy:  0.9884                 | Val Loss:  0.0463                 | Val Accuracy:  0.6230
+
+======== Epoch 9 / 10 ========
+Training...
+Epochs: 9 | Train Loss:  0.0009                 | Train Accuracy:  0.9934                 | Val Loss:  0.0502                 | Val Accuracy:  0.6206
+
+======== Epoch 10 / 10 ========
+Training...
+Epochs: 10 | Train Loss:  0.0009                 | Train Accuracy:  0.9939                 | Val Loss:  0.0507                 | Val Accuracy:  0.6211
+Saving model...
+
+
+#====================[lstm+FakeorReal]======================#
+4,053 training samples
+1,014 validation samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + lstm
+Freezed pretrain: False
+Train dataset: FakeorReal
+Use batch size: 32
+Use epoch: 10
+Use learning_rate: 2e-05
+Use eps: 1e-08
+Use early stopping: False
+Use patience: 5
+Use device: cuda
+
+======== Epoch 1 / 10 ========
+Training...
+Epochs: 1 | Train Loss:  0.0105                 | Train Accuracy:  0.8641                 | Val Loss:  0.0039                 | Val Accuracy:  0.9596
+
+======== Epoch 2 / 10 ========
+Training...
+Epochs: 2 | Train Loss:  0.0024                 | Train Accuracy:  0.9766                 | Val Loss:  0.0022                 | Val Accuracy:  0.9753
+
+======== Epoch 3 / 10 ========
+Training...
+Epochs: 3 | Train Loss:  0.0009                 | Train Accuracy:  0.9936                 | Val Loss:  0.0023                 | Val Accuracy:  0.9783
+
+======== Epoch 4 / 10 ========
+Training...
+Epochs: 4 | Train Loss:  0.0005                 | Train Accuracy:  0.9961                 | Val Loss:  0.0023                 | Val Accuracy:  0.9832
+
+======== Epoch 5 / 10 ========
+Training...
+Epochs: 5 | Train Loss:  0.0003                 | Train Accuracy:  0.9983                 | Val Loss:  0.0033                 | Val Accuracy:  0.9783
+
+======== Epoch 6 / 10 ========
+Training...
+Epochs: 6 | Train Loss:  0.0004                 | Train Accuracy:  0.9961                 | Val Loss:  0.0023                 | Val Accuracy:  0.9813
+
+======== Epoch 7 / 10 ========
+Training...
+Epochs: 7 | Train Loss:  0.0002                 | Train Accuracy:  0.9995                 | Val Loss:  0.0027                 | Val Accuracy:  0.9822
+
+======== Epoch 8 / 10 ========
+Training...
+Epochs: 8 | Train Loss:  0.0002                 | Train Accuracy:  0.9995                 | Val Loss:  0.0023                 | Val Accuracy:  0.9832
+
+======== Epoch 9 / 10 ========
+Training...
+Epochs: 9 | Train Loss:  0.0002                 | Train Accuracy:  0.9995                 | Val Loss:  0.0024                 | Val Accuracy:  0.9813
+
+======== Epoch 10 / 10 ========
+Training...
+Epochs: 10 | Train Loss:  0.0002                 | Train Accuracy:  0.9995                 | Val Loss:  0.0024                 | Val Accuracy:  0.9822
+Saving model...
+
+
+#====================[lstm+FND]======================#
+3,190 training samples
+  798 validation samples
+There are 1 GPU(s) available.
+We will use the GPU: TITAN RTX
+
+Train model: bert-base-cased + lstm
+Freezed pretrain: False
+Train dataset: FND
+Use batch size: 32
+Use epoch: 10
+Use learning_rate: 2e-05
+Use eps: 1e-08
+Use early stopping: False
+Use patience: 5
+Use device: cuda
+
+======== Epoch 1 / 10 ========
+Training...
+Epochs: 1 | Train Loss:  0.0200                 | Train Accuracy:  0.6339                 | Val Loss:  0.0178                 | Val Accuracy:  0.7143
+
+======== Epoch 2 / 10 ========
+Training...
+Epochs: 2 | Train Loss:  0.0154                 | Train Accuracy:  0.7705                 | Val Loss:  0.0162                 | Val Accuracy:  0.7594
+
+======== Epoch 3 / 10 ========
+Training...
+Epochs: 3 | Train Loss:  0.0113                 | Train Accuracy:  0.8527                 | Val Loss:  0.0149                 | Val Accuracy:  0.7694
+
+======== Epoch 4 / 10 ========
+Training...
+Epochs: 4 | Train Loss:  0.0076                 | Train Accuracy:  0.9154                 | Val Loss:  0.0165                 | Val Accuracy:  0.7870
+
+======== Epoch 5 / 10 ========
+Training...
+Epochs: 5 | Train Loss:  0.0049                 | Train Accuracy:  0.9505                 | Val Loss:  0.0200                 | Val Accuracy:  0.7757
+
+======== Epoch 6 / 10 ========
+Training...
+Epochs: 6 | Train Loss:  0.0033                 | Train Accuracy:  0.9674                 | Val Loss:  0.0221                 | Val Accuracy:  0.7707
+
+======== Epoch 7 / 10 ========
+Training...
+Epochs: 7 | Train Loss:  0.0022                 | Train Accuracy:  0.9834                 | Val Loss:  0.0230                 | Val Accuracy:  0.7769
+
+======== Epoch 8 / 10 ========
+Training...
+Epochs: 8 | Train Loss:  0.0017                 | Train Accuracy:  0.9878                 | Val Loss:  0.0251                 | Val Accuracy:  0.7782
+
+======== Epoch 9 / 10 ========
+Training...
+Epochs: 9 | Train Loss:  0.0015                 | Train Accuracy:  0.9897                 | Val Loss:  0.0249                 | Val Accuracy:  0.7794
+
+======== Epoch 10 / 10 ========
+Training...
+Epochs: 10 | Train Loss:  0.0013                 | Train Accuracy:  0.9922                 | Val Loss:  0.0252                 | Val Accuracy:  0.7807
+Saving model...

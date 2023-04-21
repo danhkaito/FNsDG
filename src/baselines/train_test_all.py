@@ -1,12 +1,16 @@
 from train_test_framework import TrainTestFramework
-from utils import get_parser
+from utils import get_parser, set_seed
 import importlib
 
 import sys
 import os
 
+sys.path.append("./configs")
+
 parser = parser = get_parser()
 args = parser.parse_args()
+
+print(f"Using config file: {args.config}.py")
 
 conf = importlib.import_module(args.config)
 
@@ -32,6 +36,9 @@ train_args = {
     'cuda': model_conf['cuda'],
     'save_model': model_conf['save_model']
 }
+
+# ============== Set seed ===============
+set_seed(model_conf['seed'])
 
 LOG_FOLDER = model_conf['folder_model'] + '/Log'
 
