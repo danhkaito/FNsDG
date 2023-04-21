@@ -33,7 +33,7 @@ train_args = {
     'save_model': model_conf['save_model']
 }
 
-LOG_FOLDER = {model_conf['folder_model']} + '/Log'
+LOG_FOLDER = model_conf['folder_model'] + '/Log'
 
 if not os.path.exists(LOG_FOLDER):
     os.makedirs(LOG_FOLDER)
