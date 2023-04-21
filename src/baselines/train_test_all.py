@@ -5,11 +5,6 @@ import importlib
 import sys
 import os
 
-OUTPUT_FOLDER = './Log'
-
-if not os.path.exists(OUTPUT_FOLDER):
-    os.makedirs(OUTPUT_FOLDER)
-
 parser = parser = get_parser()
 args = parser.parse_args()
 
@@ -37,9 +32,17 @@ train_args = {
     'cuda': model_conf['cuda']
 }
 
+LOG_FOLDER = {model_conf['folder_model']} + '/Log'
+
+if not os.path.exists(LOG_FOLDER):
+    os.makedirs(LOG_FOLDER)
+    
+TRAIN_LOG = f'{LOG_FOLDER}/train.txt'
+TEST_LOG = f'{LOG_FOLDER}/test.txt'
+
 # Erase file
-open(f'{OUTPUT_FOLDER}/train.txt', 'w').close()
-open(f'{OUTPUT_FOLDER}/test.txt', 'w').close()
+open(TRAIN_LOG, 'w').close()
+open(TEST_LOG, 'w').close()
 
 for model_type in conf.MODEL_TYPES:
     for data in conf.DATA:
@@ -50,14 +53,14 @@ for model_type in conf.MODEL_TYPES:
         
         train_test = TrainTestFramework(**model_args)
         
-        with open(f'{OUTPUT_FOLDER}/train.txt', 'a') as f:
+        with open(TRAIN_LOG, 'a') as f:
             sys.stdout = f
             
             print(f"\n\n#====================[{model_type}+{data}]======================#")
             train_test.train(**train_args)
         
         
-        with open(f'{OUTPUT_FOLDER}/test.txt', 'a') as f:
+        with open(TEST_LOG, 'a') as f:
             sys.stdout = f
             
             for test_data in conf.DATA:

@@ -7,6 +7,7 @@ from torch.optim import AdamW
 from torch.utils.data import DataLoader, RandomSampler, SequentialSampler, random_split
 # import matplotlib.pyplot as plt
 from tqdm import tqdm
+import os
 
 from transformers import AutoTokenizer
 
@@ -27,6 +28,9 @@ class TrainTestFramework:
         self.max_length = max_length
         self.folder_data = folder_data
         self.freeze_pretrain = freeze_pretrain
+        
+        if not os.path.exists(folder_model):
+            os.makedirs(folder_model)
         
         self.train_data_path = f'{folder_data}/{train_data}/train.csv'
         self.model_path = f'{folder_model}/{model_name}_{model_type}_{train_data}_{t}.pt'
@@ -230,8 +234,8 @@ class TrainTestFramework:
         print(f"Test dataset: {test_data}")
         print('')
         
-        pred_prob = torch.cat(pred_prob, axis=0)
-        true_labels = torch.cat(true_labels, axis=0)
+        pred_prob = torch.cat(pred_prob, dim=0)
+        true_labels = torch.cat(true_labels, dim=0)
         
         utils.print_metrics(true_labels, pred_prob)
         
