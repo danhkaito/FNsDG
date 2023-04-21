@@ -87,7 +87,7 @@ class TrainTestFramework:
         
         return train_dataloader, validation_dataloader, train_size, val_size
     
-    def train(self, batch_size, epoch, learning_rate, eps, use_early_stopping = True, patience = 5, cuda = True):
+    def train(self, batch_size, epoch, learning_rate, eps, use_early_stopping = True, patience = 5, cuda = True, save_model=True):
         
         train_dataloader, validation_dataloader, train_size, val_size = self.prepare_data(self.train_data_path, batch_size, 0.8)
 
@@ -120,6 +120,7 @@ class TrainTestFramework:
         print(f'Use early stopping: {use_early_stopping}') 
         print(f'Use patience: {patience}') 
         print(f'Use device: {device}') 
+        print(f'Save model: {save_model}') 
         
         for epoch_num in range(epoch):
 
@@ -174,7 +175,7 @@ class TrainTestFramework:
             
             # Saving best model
             if use_early_stopping:
-                if early_stopping.early_stop(total_loss_val, model, self.model_path):
+                if early_stopping.early_stop(total_loss_val, model, self.model_path, save_model):
                         print(f"Early stopping at epoch: {epoch_num + 1}")
                         break
             
@@ -190,8 +191,9 @@ class TrainTestFramework:
             })
         
         if not use_early_stopping:
-            print("Saving model...")
-            torch.save(model.state_dict(), self.model_path)
+            if save_model:
+                print("Saving model...")
+                torch.save(model.state_dict(), self.model_path)
             
         return training_stats
     

@@ -29,7 +29,8 @@ train_args = {
     'eps': model_conf['eps'], 
     'use_early_stopping': model_conf['use_early_stopping'], 
     'patience': model_conf['patience'],
-    'cuda': model_conf['cuda']
+    'cuda': model_conf['cuda'],
+    'save_model': model_conf['save_model']
 }
 
 LOG_FOLDER = {model_conf['folder_model']} + '/Log'

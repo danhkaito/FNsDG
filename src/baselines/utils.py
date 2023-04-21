@@ -17,13 +17,14 @@ class EarlyStopping:
         else:
             self.value = np.inf
 
-    def early_stop(self, new_value, model, path):
+    def early_stop(self, new_value, model, path, save_model):
         if (self.mode == 'acc' and self.value < new_value) or (self.mode == 'loss' and self.value > new_value):
             self.value = new_value
             self.counter = 0
             
-            print("Saving best model...")
-            torch.save(model.state_dict(), path)
+            if save_model:
+                print("Saving best model...")
+                torch.save(model.state_dict(), path)
         
         elif (self.mode == 'acc' and self.value - new_value > self.min_delta) or (self.mode == 'loss' and new_value - self.value> self.min_delta):
             self.counter += 1
