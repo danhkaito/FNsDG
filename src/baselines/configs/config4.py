@@ -1,6 +1,6 @@
 MODEL_TYPES = ['mlp', 'cnn', 'lstm']
 
-DATA = ['Liar', 'FakeorReal', 'FND']
+DATA = ['covid3', 'liar_fnd_for', 'liar_fnd_for_covid3']
 
 MODEL_CONF = {
    'seed': 40,

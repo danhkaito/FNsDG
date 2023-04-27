@@ -71,9 +71,8 @@ for model_type in conf.MODEL_TYPES:
         with open(TEST_LOG, 'a') as f:
             sys.stdout = f
             
-            for test_data in conf.DATA:
-                print(f"\n\n#==============[Train:{model_type}+{data}/Test:{test_data}]=============#")
-                train_test.test(test_data, batch_size=32, load_from_disk=False)
+            print(f"\n\n#==============[Train:{model_type}+{data}/Test:{data}]=============#")
+            train_test.test(data, batch_size=32, load_from_disk=False)
         
 
 # train_test = TrainTestFramework(**model_args)

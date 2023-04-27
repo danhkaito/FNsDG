@@ -15,6 +15,6 @@ MODEL_CONF = {
    'max_length': 512,
    'cuda': True,
    'folder_data': "../../data",
-   'folder_model':"../../saved/baselines/config2",
+   'folder_model':"../../saved/baselines",
    'save_model': False
 }
