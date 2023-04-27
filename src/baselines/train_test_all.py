@@ -5,6 +5,7 @@ import importlib
 import sys
 import os
 
+#==============[SETING ENV PARAM]===============#
 sys.path.append("./configs")
 
 parser = parser = get_parser()
@@ -15,7 +16,10 @@ print(f"Using config file: {args.config}.py")
 conf = importlib.import_module(args.config)
 
 model_conf = conf.MODEL_CONF
+#===============================================#
 
+
+#==============[SETING MODEL ARGS]===============#
 model_args = {
     'model_type': 'cnn', 
     'model_name': model_conf['model_name'], 
@@ -36,6 +40,8 @@ train_args = {
     'cuda': model_conf['cuda'],
     'save_model': model_conf['save_model']
 }
+#=================================================#
+
 
 # ============== Set seed ===============
 set_seed(model_conf['seed'])
