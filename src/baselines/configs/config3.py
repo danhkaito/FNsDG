@@ -1,3 +1,4 @@
+# Train test all
 MODEL_TYPES = ['mlp', 'cnn', 'lstm']
 
 DATA = ['Liar', 'FakeorReal', 'FND']

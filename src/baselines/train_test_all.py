@@ -46,7 +46,7 @@ train_args = {
 # ============== Set seed ===============
 set_seed(model_conf['seed'])
 
-LOG_FOLDER = model_conf['folder_model'] + '/Log'
+LOG_FOLDER = model_args['folder_model'] + '/Log'
 
 if not os.path.exists(LOG_FOLDER):
     os.makedirs(LOG_FOLDER)
