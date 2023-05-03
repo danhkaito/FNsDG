@@ -15,6 +15,8 @@ from models import *
 from data import FakeNewsDataset
 import utils
 
+import sys
+
 class TrainTestFramework:
     def __init__(self, model_type, model_name, train_data, max_length, folder_data, folder_model, freeze_pretrain = False):
         
@@ -189,11 +191,15 @@ class TrainTestFramework:
             # 'Training Time': training_time,
             # 'Validation Time': validation_time
             })
+            
+            # Flush the buffer to print output of each epoch
+            sys.stdout.flush()
         
         if not use_early_stopping:
             if save_model:
                 print("Saving model...")
                 torch.save(model.state_dict(), self.model_path)
+            
             
         return training_stats
     
