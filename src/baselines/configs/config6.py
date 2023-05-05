@@ -1,7 +1,7 @@
 # Train test one
 MODEL_TYPES = ['mlp', 'lstm']
 
-DATA = ['VLPS']
+DATA = ['medical']
 
 MODEL_CONF = {
    'seed': 40,
