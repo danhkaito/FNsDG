@@ -5,7 +5,7 @@ DATA = ['covid3', 'liar_fnd_for', 'liar_fnd_for_covid3']
 
 MODEL_CONF = {
    'seed': 40,
-   'batch_size': 32,
+   'batch_size': 8,
    'use_early_stopping': False,
    'patience': 5,
    'freeze_pretrain': False,
