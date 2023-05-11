@@ -78,7 +78,7 @@ def get_parser():
 def get_device(cuda):
     if cuda and torch.cuda.is_available():  
         # Tell PyTorch to use the GPU.    
-        device = torch.device("cuda:1")
+        device = torch.device("cuda:0")
         print('There are %d GPU(s) available.' % torch.cuda.device_count())
         print('We will use the GPU:', torch.cuda.get_device_name(0))
     # If not...
